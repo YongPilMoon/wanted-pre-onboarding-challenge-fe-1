@@ -2,25 +2,20 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
-  Link,
+  createRoutesFromElements,
 } from "react-router-dom";
 import Auth from "@/pages/Auth";
+import Home from "@/pages/Home";
+import Layout from "@/components/Layout";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="auth">Login</Link>
-      </div>
-    ),
-  },
-  {
-    path: "auth",
-    element: <Auth />,
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="auth" element={<Auth />} />
+    </Route>
+  )
+);
 
 function App() {
   return <RouterProvider router={router} />;
