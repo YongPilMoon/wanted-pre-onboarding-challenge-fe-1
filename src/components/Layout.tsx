@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div>
+    <div className="container mx-auto p-20">
       <main>
         <Outlet />
       </main>
