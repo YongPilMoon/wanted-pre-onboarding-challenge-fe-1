@@ -8,6 +8,9 @@ import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import Layout from "@/ui/Layout";
 import SignUp from "@/pages/SignUp";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +23,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
