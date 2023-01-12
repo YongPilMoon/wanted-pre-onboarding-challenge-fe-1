@@ -4,6 +4,7 @@ import TextField from "@/ui/TextField";
 import { object, string } from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import FormGroup from "@/ui/FormGroup";
 
 type LoginForm = {
   email: string;
@@ -31,12 +32,8 @@ function LoginForm() {
   const { email, password } = watch();
 
   return (
-    <>
-      <form
-        className="w-96 mx-auto grid gap-5 p-8 border"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <h1 className="text-3xl font-bold">Login</h1>
+    <div className="w-96 mx-auto">
+      <FormGroup onSubmit={handleSubmit(onSubmit)} title="Login">
         <TextField
           label="Email"
           {...register("email")}
@@ -55,8 +52,8 @@ function LoginForm() {
         >
           로그인
         </Button>
-      </form>
-    </>
+      </FormGroup>
+    </div>
   );
 }
 
