@@ -1,16 +1,24 @@
 import axios from "@/axiosInstance";
 import { AxiosResponse } from "axios";
-type SingUpType = { email: string; password: string };
-type SignUpPayload = {
+
+type AuthType = { email: string; password: string };
+type AuthPayload = {
   message: string;
   token: string;
 };
 
-const signUp = ({ email, password }: SingUpType) => {
-  return axios.post<SingUpType, AxiosResponse<SignUpPayload>>("/users/create", {
+const login = ({ email, password }: AuthType) => {
+  return axios.post<AuthType, AxiosResponse<AuthPayload>>("/users/login", {
     email,
     password,
   });
 };
 
-export { signUp };
+const signUp = ({ email, password }: AuthType) => {
+  return axios.post<AuthType, AxiosResponse<AuthPayload>>("/users/create", {
+    email,
+    password,
+  });
+};
+
+export { signUp, login };

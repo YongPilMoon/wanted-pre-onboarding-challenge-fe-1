@@ -6,6 +6,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormGroup from "@/ui/FormGroup";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { login } from "./api";
+import { authState } from "@/store/atoms";
+import { useSetRecoilState } from "recoil";
 
 type LoginForm = {
   email: string;
@@ -20,6 +24,20 @@ const loginFormschema = object().shape({
 function LoginForm() {
   const location = useLocation();
   const navigate = useNavigate();
+  const setToken = useSetRecoilState(authState);
+  const { mutateAsync } = useMutation({
+    mutationFn: login,
+    onSuccess: ({ data }) => {
+      localStorage.setItem("token", data.token);
+      setToken((prev) => ({
+        ...prev,
+        token: data.token,
+      }));
+      const origin = location.state?.from?.pathname || "/dashboard";
+      navigate(origin);
+    },
+  });
+
   const {
     register,
     handleSubmit,
@@ -31,11 +49,11 @@ function LoginForm() {
     mode: "onChange",
   });
 
-  const onSubmit = (data: LoginForm) => {
-    const origin = location.state?.from?.pathname || "/dashboard";
-    navigate(origin);
-  };
   const { email, password } = watch();
+
+  const onSubmit = ({ email, password }: LoginForm) => {
+    mutateAsync({ email, password });
+  };
 
   return (
     <div className="w-full">
