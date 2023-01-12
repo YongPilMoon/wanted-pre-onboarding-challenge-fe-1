@@ -33,7 +33,7 @@ function LoginForm() {
         ...prev,
         token: data.token,
       }));
-      const origin = location.state?.from?.pathname || "/dashboard";
+      const origin = location.state?.from?.pathname || "/";
       navigate(origin);
     },
   });
