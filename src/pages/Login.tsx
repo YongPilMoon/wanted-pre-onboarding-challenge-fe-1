@@ -1,7 +1,11 @@
-import LoginForm from "@/features/login/LoginForm";
+import LoginForm from "@/features/auth/LoginForm";
 
 function Login() {
-  return <LoginForm />;
+  return (
+    <div className="w-96 mx-auto">
+      <LoginForm />
+    </div>
+  );
 }
 
 export default Login;

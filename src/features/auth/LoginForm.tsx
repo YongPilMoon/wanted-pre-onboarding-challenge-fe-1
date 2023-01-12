@@ -32,15 +32,15 @@ function LoginForm() {
   const { email, password } = watch();
 
   return (
-    <div className="w-96 mx-auto">
-      <FormGroup onSubmit={handleSubmit(onSubmit)} title="Login">
+    <div className="w-full">
+      <FormGroup onSubmit={handleSubmit(onSubmit)} title="로그인">
         <TextField
-          label="Email"
+          label="이메일"
           {...register("email")}
           errorMessage={errors.email?.message}
         />
         <TextField
-          label="Password"
+          label="비밀번호"
           {...register("password")}
           type="password"
           errorMessage={errors.password?.message}

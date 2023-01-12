@@ -1,7 +1,7 @@
 import { ComponentProps, forwardRef } from "react";
 
 type TextInputProps = {
-  label: string;
+  label?: string;
   errorMessage?: string;
 } & ComponentProps<"input">;
 

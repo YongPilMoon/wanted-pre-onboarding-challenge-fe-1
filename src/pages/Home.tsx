@@ -4,7 +4,12 @@ function Home() {
   return (
     <>
       <p className="text-3xl font-bold underline">Hello World</p>
-      <NavLink to="login">Auth</NavLink>
+      <div>
+        <NavLink to="auth/login">Login</NavLink>
+      </div>
+      <div>
+        <NavLink to="auth/signup">SignUp</NavLink>
+      </div>
     </>
   );
 }
