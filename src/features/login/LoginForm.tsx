@@ -37,20 +37,17 @@ function LoginForm() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-3xl font-bold">Login</h1>
-        <div>
-          <TextField label="Email" {...register("email")} />
-          <p className="text-xs text-rose-600 mt-1">{errors.email?.message}</p>
-        </div>
-        <div>
-          <TextField
-            label="Password"
-            {...register("password")}
-            type="password"
-          />
-          <p className="text-xs text-rose-600 mt-1">
-            {errors.password?.message}
-          </p>
-        </div>
+        <TextField
+          label="Email"
+          {...register("email")}
+          errorMessage={errors.email?.message}
+        />
+        <TextField
+          label="Password"
+          {...register("password")}
+          type="password"
+          errorMessage={errors.password?.message}
+        />
         <Button
           disabled={
             Object.keys(errors).length !== 0 || email === "" || password === ""
