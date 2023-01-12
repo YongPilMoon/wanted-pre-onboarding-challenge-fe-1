@@ -5,6 +5,7 @@ import { object, string } from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormGroup from "@/ui/FormGroup";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 type LoginForm = {
   email: string;
@@ -17,6 +18,8 @@ const loginFormschema = object().shape({
 });
 
 function LoginForm() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -28,7 +31,10 @@ function LoginForm() {
     mode: "onChange",
   });
 
-  const onSubmit = (data: LoginForm) => console.log(data);
+  const onSubmit = (data: LoginForm) => {
+    const origin = location.state?.from?.pathname || "/dashboard";
+    navigate(origin);
+  };
   const { email, password } = watch();
 
   return (
@@ -49,9 +55,13 @@ function LoginForm() {
           disabled={
             Object.keys(errors).length !== 0 || email === "" || password === ""
           }
+          type="submit"
         >
           로그인
         </Button>
+        <Link className="text-cyan-600" to="/auth/signup">
+          회원가입
+        </Link>
       </FormGroup>
     </div>
   );

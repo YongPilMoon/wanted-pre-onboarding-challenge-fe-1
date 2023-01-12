@@ -1,5 +1,5 @@
 import axios from "@/axiosInstance";
-
+import { AxiosResponse } from "axios";
 type SingUpType = { email: string; password: string };
 type SignUpPayload = {
   message: string;
@@ -7,7 +7,7 @@ type SignUpPayload = {
 };
 
 const signUp = ({ email, password }: SingUpType) => {
-  return axios.post<SingUpType, SignUpPayload>("/users/create", {
+  return axios.post<SingUpType, AxiosResponse<SignUpPayload>>("/users/create", {
     email,
     password,
   });

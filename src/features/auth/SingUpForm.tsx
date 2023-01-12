@@ -6,7 +6,9 @@ import { object, string, ref } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUp } from "./api";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { authState } from "../../store/atoms";
+import { useSetRecoilState } from "recoil";
 
 type SignUpFormType = {
   email: string;
@@ -40,11 +42,16 @@ function SignUpForm() {
     mode: "onChange",
   });
   const navigate = useNavigate();
+  const setToken = useSetRecoilState(authState);
 
   const { mutateAsync } = useMutation({
     mutationFn: signUp,
-    onSuccess: ({ token }) => {
-      localStorage.setItem("token", token);
+    onSuccess: ({ data }) => {
+      localStorage.setItem("token", data.token);
+      setToken((prev) => ({
+        ...prev,
+        token: data.token,
+      }));
       navigate("/");
     },
   });
@@ -85,6 +92,9 @@ function SignUpForm() {
         >
           회원가입
         </Button>
+        <Link className="text-cyan-600" to="/auth/login">
+          로그인
+        </Link>
       </FormGroup>
     </div>
   );

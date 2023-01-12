@@ -1,8 +1,6 @@
-import { PropsWithChildren } from "react";
+import { ComponentProps, PropsWithChildren } from "react";
 
-type ButtonProps = {
-  disabled?: boolean;
-};
+type ButtonProps = ComponentProps<"button">;
 
 function Button({ children, disabled }: PropsWithChildren<ButtonProps>) {
   return (
