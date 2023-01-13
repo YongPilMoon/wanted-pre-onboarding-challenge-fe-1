@@ -1,4 +1,4 @@
-import Todo from "@/assets/todo/Todo";
+import Todo from "@/features/todo/Todo";
 
 function Home() {
   return (

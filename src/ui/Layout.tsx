@@ -5,7 +5,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <main className="container mx-auto p-20">
+      <main className="container mx-auto p-4 border border-blue-100">
         <Outlet />
       </main>
     </div>

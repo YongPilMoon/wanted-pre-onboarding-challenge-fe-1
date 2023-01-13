@@ -9,14 +9,12 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ label, errorMessage, ...otherProps }, ref) => {
     return (
       <div>
-        <label className="block">
-          <span className="block text-sm font-medium text-slate-700">
-            {label}
-          </span>
+        <label>
+          <span className="font-medium text-slate-700 mb-1">{label}</span>
           <input
             ref={ref}
             {...otherProps}
-            className="block border border-slate-300 placeholder-slate-400 w-full p-1"
+            className="border border-slate-300 placeholder-slate-400 w-full p-1"
           />
         </label>
         {errorMessage && (
