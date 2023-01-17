@@ -8,7 +8,9 @@ function Todo() {
       <TodoHeader />
       <div className="grid grid-cols-2">
         <TodoList />
-        <TodoEditor />
+        <div className="p-6">
+          <TodoEditor />
+        </div>
       </div>
     </div>
   );

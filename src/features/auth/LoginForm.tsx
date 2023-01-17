@@ -57,30 +57,34 @@ function LoginForm() {
 
   return (
     <div className="w-full">
-      <FormGroup onSubmit={handleSubmit(onSubmit)} title="로그인">
-        <TextField
-          label="이메일"
-          {...register("email")}
-          errorMessage={errors.email?.message}
-        />
-        <TextField
-          label="비밀번호"
-          {...register("password")}
-          type="password"
-          errorMessage={errors.password?.message}
-        />
-        <Button
-          disabled={
-            Object.keys(errors).length !== 0 || email === "" || password === ""
-          }
-          type="submit"
-        >
-          로그인
-        </Button>
-        <Link className="text-cyan-600" to="/auth/signup">
-          회원가입
-        </Link>
-      </FormGroup>
+      <div className="grid gap-5 p-8 border">
+        <FormGroup onSubmit={handleSubmit(onSubmit)} title="로그인">
+          <TextField
+            label="이메일"
+            {...register("email")}
+            errorMessage={errors.email?.message}
+          />
+          <TextField
+            label="비밀번호"
+            {...register("password")}
+            type="password"
+            errorMessage={errors.password?.message}
+          />
+          <Button
+            disabled={
+              Object.keys(errors).length !== 0 ||
+              email === "" ||
+              password === ""
+            }
+            type="submit"
+          >
+            로그인
+          </Button>
+          <Link className="text-cyan-600" to="/auth/signup">
+            회원가입
+          </Link>
+        </FormGroup>
+      </div>
     </div>
   );
 }

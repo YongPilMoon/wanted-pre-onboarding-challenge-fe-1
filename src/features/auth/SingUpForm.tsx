@@ -64,38 +64,40 @@ function SignUpForm() {
 
   return (
     <div className="w-full">
-      <FormGroup onSubmit={handleSubmit(onSubmit)} title="회원가입">
-        <TextField
-          {...register("email")}
-          label="이메일"
-          errorMessage={errors.email?.message}
-        />
-        <TextField
-          {...register("password")}
-          label="비밀번호"
-          type="password"
-          errorMessage={errors.password?.message}
-        />
-        <TextField
-          {...register("passwordConfirm")}
-          label="비밀번호 확인"
-          type="password"
-          errorMessage={errors.passwordConfirm?.message}
-        />
-        <Button
-          disabled={
-            Object.keys(errors).length !== 0 ||
-            email === "" ||
-            password === "" ||
-            passwordConfirm === ""
-          }
-        >
-          회원가입
-        </Button>
-        <Link className="text-cyan-600" to="/auth/login">
-          로그인
-        </Link>
-      </FormGroup>
+      <div className="grid gap-5 p-8 border">
+        <FormGroup onSubmit={handleSubmit(onSubmit)} title="회원가입">
+          <TextField
+            {...register("email")}
+            label="이메일"
+            errorMessage={errors.email?.message}
+          />
+          <TextField
+            {...register("password")}
+            label="비밀번호"
+            type="password"
+            errorMessage={errors.password?.message}
+          />
+          <TextField
+            {...register("passwordConfirm")}
+            label="비밀번호 확인"
+            type="password"
+            errorMessage={errors.passwordConfirm?.message}
+          />
+          <Button
+            disabled={
+              Object.keys(errors).length !== 0 ||
+              email === "" ||
+              password === "" ||
+              passwordConfirm === ""
+            }
+          >
+            회원가입
+          </Button>
+          <Link className="text-cyan-600" to="/auth/login">
+            로그인
+          </Link>
+        </FormGroup>
+      </div>
     </div>
   );
 }

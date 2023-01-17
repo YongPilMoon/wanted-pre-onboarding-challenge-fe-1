@@ -11,7 +11,7 @@ function FormGroup({
   title,
 }: PropsWithChildren<FormGroupProps>) {
   return (
-    <form className="grid gap-5 p-8 border" onSubmit={onSubmit}>
+    <form className="grid gap-5" onSubmit={onSubmit}>
       {title && <h1 className="text-3xl font-bold">{title}</h1>}
       {children}
     </form>

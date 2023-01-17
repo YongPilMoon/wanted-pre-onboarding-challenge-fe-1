@@ -6,7 +6,7 @@ function TodoList() {
     select: ({ data }) => data,
   });
   console.log(todos);
-  return <div className="border border-blue-100 p-4">todos</div>;
+  return <div className="border border-blue-100 p-6">todos</div>;
 }
 
 export default TodoList;
