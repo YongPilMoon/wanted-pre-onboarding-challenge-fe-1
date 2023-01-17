@@ -1,12 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import { todoKeys, getTodos } from "./api";
+import useTodoList from "./queries/useTodoList";
+import TodoListItem from "./TodoListItem";
 
 function TodoList() {
-  const { data: todos } = useQuery(todoKeys.todos, getTodos, {
-    select: ({ data }) => data,
-  });
-  console.log(todos);
-  return <div className="border border-blue-100 p-6">todos</div>;
+  const todos = useTodoList();
+  console.log("todos: ", todos);
+  return (
+    <div className="border border-blue-100 p-6">
+      {todos?.map((todo) => (
+        <TodoListItem key={todo.id} {...todo} />
+      ))}
+    </div>
+  );
 }
 
 export default TodoList;

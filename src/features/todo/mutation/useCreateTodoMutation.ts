@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
+import type { Todo } from "../queries/useTodoList";
 import API from "@/axiosInstance";
 
 export type CreateTodoParams = {
@@ -7,22 +8,11 @@ export type CreateTodoParams = {
   content: string;
 };
 
-type CreateTodoPayload = {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
 const createTodo = ({ title, content }: CreateTodoParams) => {
-  return API.post<CreateTodoParams, AxiosResponse<{ data: CreateTodoPayload }>>(
-    "/todos",
-    {
-      title,
-      content,
-    }
-  );
+  return API.post<CreateTodoParams, AxiosResponse<{ data: Todo }>>("/todos", {
+    title,
+    content,
+  });
 };
 
 function useCreateTodoMutation() {
