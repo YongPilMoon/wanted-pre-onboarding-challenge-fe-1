@@ -1,13 +1,15 @@
 import Button from "../Button";
-import useModal from "./useModal";
+import useModal, { ModalStateContext } from "./useModal";
 import TodoEditorModalContent from "@/features/todo/TodoEditorModalContent";
+import { memo, useContext } from "react";
 
 const ModalContentMap = {
   editor: TodoEditorModalContent,
 };
 
 function Modal() {
-  const { modalTypes, closeModal } = useModal();
+  const modalTypes = useContext(ModalStateContext);
+  const { closeModal } = useModal();
 
   const handleCloseButton = () => {
     closeModal();
@@ -15,7 +17,7 @@ function Modal() {
 
   return (
     <>
-      {modalTypes.map((type) => {
+      {modalTypes?.map((type) => {
         const ModalContent = ModalContentMap[type];
         return (
           <div
@@ -35,4 +37,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default memo(Modal);
