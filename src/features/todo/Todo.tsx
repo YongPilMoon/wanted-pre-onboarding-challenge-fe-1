@@ -1,12 +1,11 @@
 import TodoEditor from "./TodoEditor";
+import TodoHeader from "./TodoHeader";
 import TodoList from "./TodoList";
 
 function Todo() {
   return (
     <div className="flex flex-col gap-4">
-      <header>
-        <h1 className="text-3xl font-bold">Todos</h1>
-      </header>
+      <TodoHeader />
       <div className="grid grid-cols-2">
         <TodoList />
         <TodoEditor />
