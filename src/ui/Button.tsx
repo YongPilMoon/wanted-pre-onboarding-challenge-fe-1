@@ -1,11 +1,49 @@
 import { ComponentProps, PropsWithChildren } from "react";
+import classNames from "classnames";
 
-type ButtonProps = ComponentProps<"button">;
+type Variant = "contained" | "text";
+type Color = "green" | "gray";
+type Size = "medium" | "small";
 
-function Button({ children, ...otherProps }: PropsWithChildren<ButtonProps>) {
+type ButtonProps = {
+  variant?: Variant;
+  color?: Color;
+  size?: Size;
+} & ComponentProps<"button">;
+
+const containedColorStyle = {
+  green: "bg-green-500",
+  gray: "bg-gray-300",
+};
+
+const fontColorStyle = {
+  green: "text-green",
+  gray: "text-gray",
+};
+
+const fontSizeStyle = {
+  medium: "p-3",
+  small: "p-2 text-sm",
+};
+
+function Button({
+  variant = "contained",
+  color = "green",
+  size = "medium",
+  children,
+  ...otherProps
+}: PropsWithChildren<ButtonProps>) {
   return (
     <button
-      className="p-3 bg-green-500 text-white font-bold disabled:bg-gray-300"
+      className={classNames(
+        "disabled:bg-gray-300 rounded",
+        {
+          [`text-white font-bold ${containedColorStyle[color]}`]:
+            variant === "contained",
+          [`${fontColorStyle[color]}`]: variant === "text",
+        },
+        fontSizeStyle[size]
+      )}
       {...otherProps}
     >
       {children}

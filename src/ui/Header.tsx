@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { authState } from "../store/atoms";
+import Button from "./Button";
 
 function Header() {
   const { token } = useRecoilValue(authState);
@@ -15,9 +16,9 @@ function Header() {
         <h1 className="text-3xl font-bold">Todos</h1>
       </Link>
       {token && (
-        <button className="p-2 bg-gray-300 text-xs" onClick={onButtonClick}>
+        <Button variant="text" size="small" onClick={onButtonClick}>
           로그아웃
-        </button>
+        </Button>
       )}
     </header>
   );
