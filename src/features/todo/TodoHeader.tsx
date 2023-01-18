@@ -9,8 +9,7 @@ function TodoHeader() {
   };
 
   return (
-    <header className="flex justify-between">
-      <h1 className="text-3xl font-bold">Todos</h1>
+    <header className="flex justify-end">
       <Button onClick={handleButtonClick}>할일 추가</Button>
     </header>
   );

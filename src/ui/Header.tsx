@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { authState } from "../store/atoms";
 
@@ -9,7 +10,10 @@ function Header() {
     resetAuth();
   };
   return (
-    <header className="p-4 flex justify-end border-b border-blue-100">
+    <header className="px-8 py-4 flex justify-between border-b border-blue-100">
+      <Link to="/">
+        <h1 className="text-3xl font-bold">Todos</h1>
+      </Link>
       {token && (
         <button className="p-2 bg-gray-300 text-xs" onClick={onButtonClick}>
           로그아웃
