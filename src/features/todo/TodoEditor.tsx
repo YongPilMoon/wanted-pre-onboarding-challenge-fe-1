@@ -46,7 +46,7 @@ function TodoEditor({ todoId }: TodoEditorType) {
       <TextField {...register("title")} label="제목" placeholder="" />
       <TextArea {...register("content")} label="내용" />
       <div className="flex justify-end">
-        <Button isLoading={true}>{todo ? "수정 " : "작성"}</Button>
+        <Button isLoading={isLoading}>{todo ? "수정 " : "작성"}</Button>
       </div>
     </FormGroup>
   );

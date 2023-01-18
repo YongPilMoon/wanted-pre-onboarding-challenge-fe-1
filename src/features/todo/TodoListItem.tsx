@@ -1,15 +1,15 @@
 import { Button } from "@/ui";
-import { useLocation, useNavigate } from "react-router-dom";
 import type { Todo } from "./queries/useTodoList";
 import { AiOutlineEdit, AiOutlineMinusCircle } from "react-icons/ai";
 import colors from "tailwindcss/colors";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { todoState } from "@/store/atoms";
 import { rightSections } from "./constants";
 import { MouseEventHandler } from "react";
+import classNames from "classnames";
 
 function TodoListItem({ title, id }: Todo) {
-  const setTodoState = useSetRecoilState(todoState);
+  const [{ todoId }, setTodoState] = useRecoilState(todoState);
 
   const handleTodoItem = () => {
     setTodoState({ todoId: id, rightSection: rightSections.DETAIL });
@@ -24,7 +24,12 @@ function TodoListItem({ title, id }: Todo) {
     <ul>
       <li
         role="presentation"
-        className="flex justify-between items-center text-xl p-2"
+        className={classNames(
+          "flex justify-between items-center text-xl p-2 rounded hover:cursor-pointer hover:bg-slate-50",
+          {
+            "bg-green-100": todoId === id,
+          }
+        )}
         onClick={handleTodoItem}
         onKeyDown={handleTodoItem}
       >

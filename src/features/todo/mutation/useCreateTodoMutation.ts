@@ -1,7 +1,9 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import type { Todo } from "../queries/useTodoList";
 import API from "@/axiosInstance";
+import { todoKeys } from "../queries/queryKeys";
+import useModal from "@/ui/Modal/useModal";
 
 export type CreateTodoParams = Pick<Todo, "title" | "content">;
 
@@ -13,9 +15,12 @@ const createTodo = ({ title, content }: CreateTodoParams) => {
 };
 
 function useCreateTodoMutation() {
+  const queryClient = useQueryClient();
+  const { closeModal } = useModal();
   const { mutateAsync } = useMutation(createTodo, {
-    onSuccess: ({ data }) => {
-      const { title, content } = data.data;
+    onSuccess: () => {
+      queryClient.invalidateQueries(todoKeys.todos);
+      closeModal();
     },
   });
   return mutateAsync;
