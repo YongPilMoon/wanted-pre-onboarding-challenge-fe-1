@@ -3,10 +3,7 @@ import { AxiosResponse } from "axios";
 import type { Todo } from "../queries/useTodoList";
 import API from "@/axiosInstance";
 
-export type CreateTodoParams = {
-  title: string;
-  content: string;
-};
+export type CreateTodoParams = Pick<Todo, "title" | "content">;
 
 const createTodo = ({ title, content }: CreateTodoParams) => {
   return API.post<CreateTodoParams, AxiosResponse<{ data: Todo }>>("/todos", {

@@ -9,6 +9,8 @@ type ButtonProps = {
   variant?: Variant;
   color?: Color;
   size?: Size;
+  isLoading?: boolean;
+  noMinWidth?: boolean;
 } & ComponentProps<"button">;
 
 const containedColorStyle = {
@@ -30,6 +32,8 @@ function Button({
   variant = "contained",
   color = "green",
   size = "medium",
+  isLoading = false,
+  noMinWidth = false,
   children,
   ...otherProps
 }: PropsWithChildren<ButtonProps>) {
@@ -42,11 +46,12 @@ function Button({
             variant === "contained",
           [`${fontColorStyle[color]}`]: variant === "text",
         },
-        fontSizeStyle[size]
+        fontSizeStyle[size],
+        { "min-w-24": !noMinWidth }
       )}
       {...otherProps}
     >
-      {children}
+      {isLoading ? "loading" : <>{children}</>}
     </button>
   );
 }

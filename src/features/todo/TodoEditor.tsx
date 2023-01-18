@@ -5,29 +5,49 @@ import FormGroup from "../../ui/FormGroup";
 import useCreateTodoMutation, {
   CreateTodoParams,
 } from "./mutation/useCreateTodoMutation";
+import useTodoList from "./queries/useTodoList";
+import { useEffect } from "react";
+import useUpdateTodoMutation from "./mutation/useUpdateTodoMutation";
 
 type TodoEditorType = {
-  id?: string;
+  todoId?: string;
 };
 
-function TodoEditor({ id }: TodoEditorType) {
+function TodoEditor({ todoId }: TodoEditorType) {
   const createTodo = useCreateTodoMutation();
-  const { register, handleSubmit } = useForm<CreateTodoParams>({
+  const { mutateAsync: updateTodo, isLoading } = useUpdateTodoMutation();
+  const todos = useTodoList();
+  const todo = todos?.find(({ id }) => id === todoId);
+
+  const { register, handleSubmit, setValue } = useForm<CreateTodoParams>({
     defaultValues: {
-      title: "",
-      content: "",
+      title: todo?.title,
+      content: todo?.content,
     },
   });
 
+  useEffect(() => {
+    if (todo) {
+      setValue("title", todo.title);
+      setValue("content", todo.content);
+    }
+  }, [todo, setValue]);
+
   const onSubmit = ({ title, content }: CreateTodoParams) => {
-    createTodo({ title, content });
+    if (todoId) {
+      updateTodo({ id: todoId, title, content });
+    } else {
+      createTodo({ title, content });
+    }
   };
 
   return (
     <FormGroup onSubmit={handleSubmit(onSubmit)}>
       <TextField {...register("title")} label="제목" placeholder="" />
       <TextArea {...register("content")} label="내용" />
-      <Button>{id ? "수정" : "작성"}</Button>
+      <div className="flex justify-end">
+        <Button isLoading={true}>{todo ? "수정 " : "작성"}</Button>
+      </div>
     </FormGroup>
   );
 }

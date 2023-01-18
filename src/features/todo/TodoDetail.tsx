@@ -1,12 +1,10 @@
 import useTodoList from "./queries/useTodoList";
-import { useLocation } from "react-router-dom";
 
-function TodoDetail() {
-  const { search } = useLocation();
+type TodoDetailProps = {
+  todoId: string;
+};
+function TodoDetail({ todoId }: TodoDetailProps) {
   const todos = useTodoList();
-  const params = new URLSearchParams(search);
-  const todoId = params.get("todoId");
-
   const todo = todos?.find(({ id }) => id === todoId);
 
   return (
