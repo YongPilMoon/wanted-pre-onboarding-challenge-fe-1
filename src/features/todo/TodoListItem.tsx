@@ -7,9 +7,11 @@ import { todoState } from "@/store/atoms";
 import { rightSections } from "./constants";
 import { MouseEventHandler } from "react";
 import classNames from "classnames";
+import useDeleteTodoMutation from "./mutation/useDeleteTodoMutation";
 
 function TodoListItem({ title, id }: Todo) {
   const [{ todoId }, setTodoState] = useRecoilState(todoState);
+  const { mutateAsync: deleteTodo } = useDeleteTodoMutation();
 
   const handleTodoItem = () => {
     setTodoState({ todoId: id, rightSection: rightSections.DETAIL });
@@ -18,6 +20,11 @@ function TodoListItem({ title, id }: Todo) {
   const handleEdit: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
     setTodoState({ todoId: id, rightSection: rightSections.EDIT });
+  };
+
+  const handleDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
+    deleteTodo(id);
   };
 
   return (
@@ -38,7 +45,7 @@ function TodoListItem({ title, id }: Todo) {
           <Button variant="text" size="small" noMinWidth onClick={handleEdit}>
             <AiOutlineEdit size={24} color={colors.gray[600]} />
           </Button>
-          <Button variant="text" size="small" noMinWidth>
+          <Button variant="text" size="small" noMinWidth onClick={handleDelete}>
             <AiOutlineMinusCircle size={24} color={colors.red[600]} />
           </Button>
         </div>
