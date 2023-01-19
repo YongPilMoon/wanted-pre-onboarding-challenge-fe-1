@@ -8,10 +8,12 @@ import { rightSections } from "./constants";
 import { MouseEventHandler } from "react";
 import classNames from "classnames";
 import useDeleteTodoMutation from "./mutation/useDeleteTodoMutation";
+import useConfirm from "@/hooks/useConfirm/useConfirm";
 
 function TodoListItem({ title, id }: Todo) {
   const [{ todoId }, setTodoState] = useRecoilState(todoState);
   const { mutateAsync: deleteTodo } = useDeleteTodoMutation();
+  const { openConfirm } = useConfirm();
 
   const handleTodoItem = () => {
     setTodoState({ todoId: id, rightSection: rightSections.DETAIL });
@@ -24,7 +26,12 @@ function TodoListItem({ title, id }: Todo) {
 
   const handleDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
-    deleteTodo(id);
+    openConfirm({
+      message: "정말 삭제 하실건가요?",
+      onConfirm: () => {
+        deleteTodo(id);
+      },
+    });
   };
 
   return (

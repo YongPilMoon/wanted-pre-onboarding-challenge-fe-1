@@ -1,8 +1,8 @@
+import useModal from "@/hooks/useModal";
 import { Button } from "@/ui";
-import { useModalContext } from "@/ui/Modal";
 
 function TodoHeader() {
-  const { openModal } = useModalContext();
+  const { openModal } = useModal();
 
   const handleButtonClick = () => {
     openModal("editor");

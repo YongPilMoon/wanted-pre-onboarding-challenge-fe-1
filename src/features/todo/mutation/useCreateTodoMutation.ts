@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import type { Todo } from "../queries/useTodoList";
 import API from "@/axiosInstance";
 import { todoKeys } from "../queries/queryKeys";
-import useModal from "@/ui/Modal/useModal";
+import useModal from "@/hooks/useModal";
 
 export type CreateTodoParams = Pick<Todo, "title" | "content">;
 

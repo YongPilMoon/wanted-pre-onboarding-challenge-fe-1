@@ -8,7 +8,7 @@ import {
 } from "react";
 import type { PropsWithChildren } from "react";
 
-type ModalType = "editor";
+type ModalType = "editor" | "confirm";
 
 export const ModalStateContext = createContext<ModalType[] | null>(null);
 export const ModalSetterContext = createContext<Dispatch<

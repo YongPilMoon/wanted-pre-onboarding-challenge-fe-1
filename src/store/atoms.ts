@@ -11,3 +11,14 @@ export const todoState = atom<{ todoId: string; rightSection: RightSection }>({
   key: "todoState",
   default: { todoId: "", rightSection: rightSections.DETAIL },
 });
+
+export type ConfirmState = {
+  message: string;
+  onConfirm?: () => void;
+  onCancle?: () => void;
+};
+
+export const confirmState = atom<ConfirmState>({
+  key: "confirmState",
+  default: { message: "", onConfirm: undefined, onCancle: undefined },
+});

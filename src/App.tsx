@@ -11,7 +11,7 @@ import SignUp from "@/pages/SignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
 import { RecoilRoot } from "recoil";
-import { ModalProvider } from "./ui/Modal";
+import { ModalProvider } from "@/hooks/useModal";
 
 const queryClient = new QueryClient();
 
