@@ -6,7 +6,7 @@ export function Layout() {
   return (
     <div className="min-h-screen grid grid-rows-[min-content_1fr]">
       <Header />
-      <main className="container mx-auto p-4 border border-blue-100">
+      <main className="container mx-auto p-4">
         <Outlet />
       </main>
     </div>

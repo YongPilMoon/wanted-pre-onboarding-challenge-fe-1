@@ -1,14 +1,26 @@
 import { useTodoList } from "./queries/useTodoList";
 import { TodoListItem } from "./TodoListItem";
 
+import { Spinner } from "@/ui";
+
 export function TodoList() {
   const todos = useTodoList();
 
   return (
-    <div className="border border-blue-100 p-6">
-      {todos?.map((todo) => (
-        <TodoListItem key={todo.id} {...todo} />
-      ))}
+    <div>
+      {todos ? (
+        todos.length > 0 ? (
+          todos?.map((todo) => <TodoListItem key={todo.id} {...todo} />)
+        ) : (
+          <div className="p-10">
+            <h1 className="text-xl">할 일을 추가해 보세요</h1>
+          </div>
+        )
+      ) : (
+        <div className="p-10">
+          <Spinner />
+        </div>
+      )}
     </div>
   );
 }

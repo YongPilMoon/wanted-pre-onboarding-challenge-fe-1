@@ -4,3 +4,4 @@ export * from "./Modal";
 export * from "./Button";
 export * from "./Layout";
 export * from "./FormGroup";
+export * from "./Spinner";

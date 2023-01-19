@@ -11,7 +11,7 @@ function Header() {
     navigate("auth/login");
   };
   return (
-    <header className="px-8 py-4 flex justify-between border-b border-blue-100">
+    <header className="px-8 py-4 flex justify-between">
       <Link to="/">
         <h1 className="text-3xl font-bold">Todos</h1>
       </Link>

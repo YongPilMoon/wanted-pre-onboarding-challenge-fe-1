@@ -20,7 +20,7 @@ export function Todo() {
       <TodoHeader />
       <div className="grid grid-cols-2">
         <TodoList />
-        <div className="p-6">
+        <div className="px-6">
           {rightSection === rightSections.DETAIL ? (
             <TodoDetail todoId={todoIdParam} />
           ) : (
