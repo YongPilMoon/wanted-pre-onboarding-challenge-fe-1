@@ -1,19 +1,20 @@
-import { TextArea, TextField } from "@/ui";
-import Button from "@/ui/Button";
+import { TextArea, TextField, Button } from "@/ui";
 import { useForm } from "react-hook-form";
-import FormGroup from "../../ui/FormGroup";
-import useCreateTodoMutation, {
-  CreateTodoParams,
-} from "./mutation/useCreateTodoMutation";
-import useTodoList from "./queries/useTodoList";
+import { FormGroup } from "../../ui/FormGroup";
+
+import { useTodoList } from "./queries/useTodoList";
 import { useEffect } from "react";
-import useUpdateTodoMutation from "./mutation/useUpdateTodoMutation";
+import {
+  useCreateTodoMutation,
+  useUpdateTodoMutation,
+  CreateTodoParams,
+} from "./mutation";
 
 type TodoEditorType = {
   todoId?: string;
 };
 
-function TodoEditor({ todoId }: TodoEditorType) {
+export function TodoEditor({ todoId }: TodoEditorType) {
   const createTodo = useCreateTodoMutation();
   const { mutateAsync: updateTodo, isLoading } = useUpdateTodoMutation();
   const todos = useTodoList();
@@ -51,5 +52,3 @@ function TodoEditor({ todoId }: TodoEditorType) {
     </FormGroup>
   );
 }
-
-export default TodoEditor;

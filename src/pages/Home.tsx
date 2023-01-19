@@ -1,6 +1,6 @@
-import Todo from "@/features/todo/Todo";
+import { Todo } from "@/features/todo/Todo";
 
-function Home() {
+export function Home() {
   return (
     <>
       <Todo />

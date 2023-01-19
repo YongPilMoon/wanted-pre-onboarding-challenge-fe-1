@@ -1,4 +1,4 @@
-import API from "@/api/axiosInstance";
+import { API } from "@/api/axiosInstance";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { todoKeys } from "../queries/queryKeys";
 
@@ -6,7 +6,7 @@ const deleteTodo = (id: string) => {
   return API.delete(`/todos/${id}`);
 };
 
-function useDeleteTodoMutation() {
+export function useDeleteTodoMutation() {
   const queryClient = useQueryClient();
 
   const { mutateAsync } = useMutation(deleteTodo, {
@@ -16,5 +16,3 @@ function useDeleteTodoMutation() {
   });
   return { mutateAsync };
 }
-
-export default useDeleteTodoMutation;

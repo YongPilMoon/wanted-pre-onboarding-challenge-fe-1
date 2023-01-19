@@ -1,11 +1,11 @@
 import { ComponentProps, forwardRef } from "react";
 
-type TextInputProps = {
+type TextFieldProps = {
   label?: string;
   errorMessage?: string;
 } & ComponentProps<"input">;
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ label, errorMessage, ...otherProps }, ref) => {
     return (
       <div>
@@ -25,6 +25,4 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = "TextInput";
-
-export default TextInput;
+TextField.displayName = "TextField";

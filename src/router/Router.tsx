@@ -6,13 +6,12 @@ import {
 } from "react-router-dom";
 
 import { Layout } from "@/ui";
-import ProtectedRoute from "@/router/ProtectedRoute";
-import SignUp from "@/pages/SignUp";
-import Login from "@/pages/Login";
-import Home from "@/pages/Home";
-import NoProtectedRoute from "./NoProtectedRoute";
+import { ProtectedRoute, NoProtectedRoute } from "@/router";
+import { SignUp } from "@/pages/SignUp";
+import { Login } from "@/pages/Login";
+import { Home } from "@/pages/Home";
 
-function Router() {
+export function Router() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<Layout />}>
@@ -46,5 +45,3 @@ function Router() {
 
   return <RouterProvider router={router} />;
 }
-
-export default Router;

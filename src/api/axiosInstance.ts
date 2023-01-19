@@ -8,5 +8,4 @@ const axiosConfig: AxiosRequestConfig = {
   headers: { Authorization: `${tokenRepository.value}` },
 };
 
-const axiosInstance = axios.create(axiosConfig);
-export default axiosInstance;
+export const API = axios.create(axiosConfig);

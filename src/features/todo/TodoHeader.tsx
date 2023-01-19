@@ -1,7 +1,7 @@
-import useModal from "@/hooks/useModal";
+import { useModal } from "@/hooks/useModal";
 import { Button } from "@/ui";
 
-function TodoHeader() {
+export function TodoHeader() {
   const { openModal } = useModal();
 
   const handleButtonClick = () => {
@@ -14,5 +14,3 @@ function TodoHeader() {
     </header>
   );
 }
-
-export default TodoHeader;

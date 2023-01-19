@@ -1,9 +1,9 @@
 import { confirmState, ConfirmState } from "@/store/atoms";
 
 import { useSetRecoilState } from "recoil";
-import useModal from "../useModal";
+import { useModal } from "../useModal";
 
-function useConfirm() {
+export function useConfirm() {
   const { openModal } = useModal();
   const setConfirmState = useSetRecoilState(confirmState);
 
@@ -13,5 +13,3 @@ function useConfirm() {
   };
   return { openConfirm };
 }
-
-export default useConfirm;

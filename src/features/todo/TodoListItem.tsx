@@ -2,15 +2,15 @@ import { Button } from "@/ui";
 import type { Todo } from "./queries/useTodoList";
 import { AiOutlineEdit, AiOutlineMinusCircle } from "react-icons/ai";
 import colors from "tailwindcss/colors";
+import classNames from "classnames";
 import { useRecoilState } from "recoil";
 import { todoState } from "@/store/atoms";
 import { rightSections } from "./constants";
 import { MouseEventHandler } from "react";
-import classNames from "classnames";
-import useDeleteTodoMutation from "./mutation/useDeleteTodoMutation";
-import useConfirm from "@/hooks/useConfirm/useConfirm";
+import { useDeleteTodoMutation } from "./mutation/useDeleteTodoMutation";
+import { useConfirm } from "@/hooks/useConfirm/useConfirm";
 
-function TodoListItem({ title, id }: Todo) {
+export function TodoListItem({ title, id }: Todo) {
   const [{ todoId }, setTodoState] = useRecoilState(todoState);
   const { mutateAsync: deleteTodo } = useDeleteTodoMutation();
   const { openConfirm } = useConfirm();
@@ -60,5 +60,3 @@ function TodoListItem({ title, id }: Todo) {
     </ul>
   );
 }
-
-export default TodoListItem;

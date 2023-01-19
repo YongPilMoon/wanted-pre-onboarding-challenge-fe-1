@@ -1,1 +1,1 @@
-export { default } from "./useConfirm";
+export * from "./useConfirm";

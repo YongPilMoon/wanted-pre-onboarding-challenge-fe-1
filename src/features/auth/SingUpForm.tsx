@@ -1,7 +1,5 @@
-import FormGroup from "@/ui/FormGroup";
 import { useForm } from "react-hook-form";
-import TextField from "@/ui/TextField";
-import Button from "@/ui/Button";
+import { TextField, Button, FormGroup } from "@/ui";
 import { object, string, ref } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUp } from "./api";
@@ -25,7 +23,7 @@ const signUpFormschema = object().shape({
     .oneOf([ref("password")], "비밀번호가 일치하지 않습니다."),
 });
 
-function SignUpForm() {
+export function SignUpForm() {
   const {
     register,
     handleSubmit,
@@ -95,5 +93,3 @@ function SignUpForm() {
     </div>
   );
 }
-
-export default SignUpForm;

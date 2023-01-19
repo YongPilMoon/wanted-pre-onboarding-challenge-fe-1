@@ -1,9 +1,9 @@
-import useTodoList from "./queries/useTodoList";
+import { useTodoList } from "./queries/useTodoList";
 
 type TodoDetailProps = {
   todoId: string;
 };
-function TodoDetail({ todoId }: TodoDetailProps) {
+export function TodoDetail({ todoId }: TodoDetailProps) {
   const todos = useTodoList();
   const todo = todos?.find(({ id }) => id === todoId);
 
@@ -14,5 +14,3 @@ function TodoDetail({ todoId }: TodoDetailProps) {
     </div>
   );
 }
-
-export default TodoDetail;

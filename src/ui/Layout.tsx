@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
-function Layout() {
+export function Layout() {
   return (
     <div className="min-h-screen grid grid-rows-[min-content_1fr]">
       <Header />
@@ -11,5 +11,3 @@ function Layout() {
     </div>
   );
 }
-
-export default Layout;

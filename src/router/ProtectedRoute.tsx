@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 
 import { Navigate, useLocation } from "react-router-dom";
 
-function ProtectedRoute({ children }: PropsWithChildren) {
+export function ProtectedRoute({ children }: PropsWithChildren) {
   const location = useLocation();
 
   if (!isLogin()) {
@@ -12,5 +12,3 @@ function ProtectedRoute({ children }: PropsWithChildren) {
 
   return <>{children}</>;
 }
-
-export default ProtectedRoute;

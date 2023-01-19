@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Button from "./Button";
+import { Button } from "./Button";
 import { isLogin, tokenRepository } from "@/utils/token";
 
 function Header() {
@@ -13,7 +13,7 @@ function Header() {
       <Link to="/">
         <h1 className="text-3xl font-bold">Todos</h1>
       </Link>
-      {isLogin && (
+      {isLogin() && (
         <Button variant="text" size="small" onClick={onButtonClick}>
           로그아웃
         </Button>

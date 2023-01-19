@@ -1,7 +1,7 @@
-import useTodoList from "./queries/useTodoList";
-import TodoListItem from "./TodoListItem";
+import { useTodoList } from "./queries/useTodoList";
+import { TodoListItem } from "./TodoListItem";
 
-function TodoList() {
+export function TodoList() {
   const todos = useTodoList();
 
   return (
@@ -12,5 +12,3 @@ function TodoList() {
     </div>
   );
 }
-
-export default TodoList;

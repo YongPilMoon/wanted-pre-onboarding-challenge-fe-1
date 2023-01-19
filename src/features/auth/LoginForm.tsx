@@ -1,14 +1,11 @@
-import Button from "@/ui/Button";
-import TextField from "@/ui/TextField";
-
+import { Button, TextField, FormGroup } from "@/ui";
 import { object, string } from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import FormGroup from "@/ui/FormGroup";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "./api";
-import { tokenRepository } from "../../utils/token";
+import { tokenRepository } from "@/utils/token";
 
 type LoginForm = {
   email: string;
@@ -20,7 +17,7 @@ const loginFormschema = object().shape({
   password: string().min(8).max(24).required(),
 });
 
-function LoginForm() {
+export function LoginForm() {
   const location = useLocation();
   const navigate = useNavigate();
   const { mutateAsync } = useMutation({
@@ -82,5 +79,3 @@ function LoginForm() {
     </div>
   );
 }
-
-export default LoginForm;

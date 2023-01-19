@@ -28,7 +28,7 @@ export const ModalProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-function useModal() {
+export function useModal() {
   const setModalTypes = useContext(ModalSetterContext);
 
   if (!setModalTypes) {
@@ -45,5 +45,3 @@ function useModal() {
 
   return { openModal, closeModal };
 }
-
-export default useModal;

@@ -4,7 +4,7 @@ type TextAreaProps = {
   label?: string;
 } & ComponentProps<"textarea">;
 
-const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ label, ...otherProps }, ref) => {
     return (
       <div>
@@ -21,5 +21,3 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 );
 
 TextArea.displayName = "TextArea";
-
-export default TextArea;

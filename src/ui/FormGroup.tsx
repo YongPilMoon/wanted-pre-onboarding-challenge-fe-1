@@ -5,7 +5,7 @@ type FormGroupProps = {
   title?: string;
 };
 
-function FormGroup({
+export function FormGroup({
   children,
   onSubmit,
   title,
@@ -17,5 +17,3 @@ function FormGroup({
     </form>
   );
 }
-
-export default FormGroup;

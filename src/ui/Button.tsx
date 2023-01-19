@@ -28,7 +28,7 @@ const fontSizeStyle = {
   small: "p-2 text-sm",
 };
 
-function Button({
+export function Button({
   variant = "contained",
   color = "green",
   size = "medium",
@@ -55,5 +55,3 @@ function Button({
     </button>
   );
 }
-
-export default Button;

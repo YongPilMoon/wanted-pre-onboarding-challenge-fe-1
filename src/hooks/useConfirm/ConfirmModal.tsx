@@ -1,9 +1,9 @@
 import { useRecoilValue } from "recoil";
 import { confirmState } from "@/store/atoms";
-import Button from "../../ui/Button";
-import useModal from "@/hooks/useModal";
+import { Button } from "../../ui/Button";
+import { useModal } from "@/hooks/useModal";
 
-function ConfirmModal() {
+export function ConfirmModal() {
   const { message, onConfirm, onCancle } = useRecoilValue(confirmState);
   const { closeModal } = useModal();
   const handleConfirm = () => {
@@ -33,5 +33,3 @@ function ConfirmModal() {
     </div>
   );
 }
-
-export default ConfirmModal;

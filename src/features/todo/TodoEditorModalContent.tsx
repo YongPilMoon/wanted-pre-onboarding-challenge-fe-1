@@ -1,11 +1,9 @@
-import TodoEditor from "./TodoEditor";
+import { TodoEditor } from "./TodoEditor";
 
-function TodoEditorModalContent() {
+export function TodoEditorModalContent() {
   return (
     <div className="w-96">
       <TodoEditor />
     </div>
   );
 }
-
-export default TodoEditorModalContent;

@@ -1,15 +1,15 @@
-import useModal, { ModalStateContext } from "../../hooks/useModal";
-import TodoEditorModalContent from "@/features/todo/TodoEditorModalContent";
+import { useModal, ModalStateContext } from "../hooks/useModal";
+import { TodoEditorModalContent } from "@/features/todo/TodoEditorModalContent";
 import { memo, useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
-import ConfirmModal from "../../hooks/useConfirm/ConfirmModal";
+import { ConfirmModal } from "../hooks/useConfirm/ConfirmModal";
 
 const ModalContentMap = {
   editor: TodoEditorModalContent,
   confirm: ConfirmModal,
 };
 
-function Modal() {
+export const Modal = memo(() => {
   const modalTypes = useContext(ModalStateContext);
   const { closeModal } = useModal();
 
@@ -39,6 +39,6 @@ function Modal() {
       })}
     </>
   );
-}
+});
 
-export default memo(Modal);
+Modal.displayName = "Modal";
