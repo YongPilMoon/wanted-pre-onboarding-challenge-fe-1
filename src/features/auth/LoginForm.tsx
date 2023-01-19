@@ -2,15 +2,8 @@ import { Button, TextField, FormGroup } from "@/ui";
 import { object, string } from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
-import { login } from "./api";
-import { tokenRepository } from "@/utils/token";
-
-type LoginForm = {
-  email: string;
-  password: string;
-};
+import { Link } from "react-router-dom";
+import { AuthParams, useLoginMutation } from "./mutation";
 
 const loginFormschema = object().shape({
   email: string().email().required(),
@@ -18,23 +11,13 @@ const loginFormschema = object().shape({
 });
 
 export function LoginForm() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { mutateAsync } = useMutation({
-    mutationFn: login,
-    onSuccess: ({ data }) => {
-      tokenRepository.value = data.token;
-      const origin = location.state?.from?.pathname || "/";
-      navigate(origin);
-    },
-  });
-
+  const { mutateAsync: login } = useLoginMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<LoginForm>({
+  } = useForm<AuthParams>({
     defaultValues: { email: "", password: "" },
     resolver: yupResolver(loginFormschema),
     mode: "onChange",
@@ -42,8 +25,8 @@ export function LoginForm() {
 
   const { email, password } = watch();
 
-  const onSubmit = ({ email, password }: LoginForm) => {
-    mutateAsync({ email, password });
+  const onSubmit = ({ email, password }: AuthParams) => {
+    login({ email, password });
   };
 
   return (

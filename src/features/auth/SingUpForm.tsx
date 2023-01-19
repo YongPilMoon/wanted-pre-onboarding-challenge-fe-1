@@ -2,10 +2,8 @@ import { useForm } from "react-hook-form";
 import { TextField, Button, FormGroup } from "@/ui";
 import { object, string, ref } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signUp } from "./api";
-import { useMutation } from "@tanstack/react-query";
-import { Link, useNavigate } from "react-router-dom";
-import { tokenRepository } from "../../utils/token";
+import { Link } from "react-router-dom";
+import { useSignUpMuation } from "./mutation/useSignUpMutation";
 
 type SignUpFormType = {
   email: string;
@@ -38,18 +36,10 @@ export function SignUpForm() {
     resolver: yupResolver(signUpFormschema),
     mode: "onChange",
   });
-  const navigate = useNavigate();
-
-  const { mutateAsync } = useMutation({
-    mutationFn: signUp,
-    onSuccess: ({ data }) => {
-      tokenRepository.value = data.token;
-      navigate("/");
-    },
-  });
+  const { mutateAsync: signUp } = useSignUpMuation();
 
   const onSubmit = async ({ email, password }: SignUpFormType) => {
-    mutateAsync({ email, password });
+    signUp({ email, password });
   };
 
   const { email, password, passwordConfirm } = watch();
