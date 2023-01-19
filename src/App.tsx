@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: "Infinity",
+      staleTime: Infinity,
     },
   },
 });

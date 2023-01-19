@@ -3,25 +3,31 @@ import type { Todo } from "./queries/useTodoList";
 import { AiOutlineEdit, AiOutlineMinusCircle } from "react-icons/ai";
 import colors from "tailwindcss/colors";
 import classNames from "classnames";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { todoState } from "@/store/atoms";
 import { rightSections } from "./constants";
 import { MouseEventHandler } from "react";
 import { useDeleteTodoMutation } from "./mutation/useDeleteTodoMutation";
 import { useConfirm } from "@/hooks/useConfirm/useConfirm";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function TodoListItem({ title, id }: Todo) {
-  const [{ todoId }, setTodoState] = useRecoilState(todoState);
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const todoIdParam = searchParams.get("todoId");
+  const navigate = useNavigate();
+  const setTodoState = useSetRecoilState(todoState);
   const { mutateAsync: deleteTodo } = useDeleteTodoMutation();
   const { openConfirm } = useConfirm();
 
   const handleTodoItem = () => {
-    setTodoState({ todoId: id, rightSection: rightSections.DETAIL });
+    setTodoState({ rightSection: rightSections.DETAIL });
+    navigate(`/?todoId=${id}`);
   };
 
   const handleEdit: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
-    setTodoState({ todoId: id, rightSection: rightSections.EDIT });
+    setTodoState({ rightSection: rightSections.EDIT });
   };
 
   const handleDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -41,7 +47,7 @@ export function TodoListItem({ title, id }: Todo) {
         className={classNames(
           "flex justify-between items-center text-xl p-2 rounded hover:cursor-pointer hover:bg-slate-50",
           {
-            "bg-green-100": todoId === id,
+            "bg-green-100": todoIdParam === id,
           }
         )}
         onClick={handleTodoItem}

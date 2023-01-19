@@ -2,9 +2,9 @@ import { rightSections } from "@/features/todo/constants";
 import type { RightSection } from "@/features/todo/constants";
 import { atom } from "recoil";
 
-export const todoState = atom<{ todoId: string; rightSection: RightSection }>({
+export const todoState = atom<{ rightSection: RightSection }>({
   key: "todoState",
-  default: { todoId: "", rightSection: rightSections.DETAIL },
+  default: { rightSection: rightSections.DETAIL },
 });
 
 export type ConfirmState = {

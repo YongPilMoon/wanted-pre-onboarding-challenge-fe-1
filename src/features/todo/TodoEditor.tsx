@@ -11,7 +11,7 @@ import {
 } from "./mutation";
 
 type TodoEditorType = {
-  todoId?: string;
+  todoId?: string | null;
 };
 
 export function TodoEditor({ todoId }: TodoEditorType) {
