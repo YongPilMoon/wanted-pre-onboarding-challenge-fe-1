@@ -28,6 +28,7 @@ export function TodoListItem({ title, id }: Todo) {
   const handleEdit: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
     setTodoState({ rightSection: rightSections.EDIT });
+    navigate(`/?todoId=${id}`);
   };
 
   const handleDelete: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -54,10 +55,22 @@ export function TodoListItem({ title, id }: Todo) {
       >
         {title}
         <div className="grid gap-1 grid-flow-col">
-          <Button variant="text" size="small" noMinWidth onClick={handleEdit}>
+          <Button
+            variant="text"
+            color="gray"
+            size="small"
+            noMinWidth
+            onClick={handleEdit}
+          >
             <AiOutlineEdit size={24} color={colors.gray[600]} />
           </Button>
-          <Button variant="text" size="small" noMinWidth onClick={handleDelete}>
+          <Button
+            variant="text"
+            color="gray"
+            size="small"
+            noMinWidth
+            onClick={handleDelete}
+          >
             <AiOutlineMinusCircle size={24} color={colors.red[600]} />
           </Button>
         </div>

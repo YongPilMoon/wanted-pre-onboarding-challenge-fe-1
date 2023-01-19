@@ -14,13 +14,13 @@ type ButtonProps = {
 } & ComponentProps<"button">;
 
 const containedColorStyle = {
-  green: "bg-green-500",
-  gray: "bg-gray-300",
+  green: "bg-green-500 hover:bg-green-600 active:bg-green-700",
+  gray: "bg-gray-300 hover:bg-gray-400",
 };
 
 const fontColorStyle = {
-  green: "text-green",
-  gray: "text-gray",
+  green: "text-green hover:bg-green-100 active:bg-green-200",
+  gray: "text-gray hover:bg-gray-100 active:bg-gray-200",
 };
 
 const fontSizeStyle = {

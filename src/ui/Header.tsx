@@ -14,7 +14,12 @@ function Header() {
         <h1 className="text-3xl font-bold">Todos</h1>
       </Link>
       {isLogin() && (
-        <Button variant="text" size="small" onClick={onButtonClick}>
+        <Button
+          variant="text"
+          color="gray"
+          size="small"
+          onClick={onButtonClick}
+        >
           로그아웃
         </Button>
       )}
