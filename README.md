@@ -34,14 +34,17 @@
 
   # 실행화면
 
-  ### 회원가입
+  ## 회원가입
+  
 
   ![signup](./.docs/signup.gif)
 
-  ### 로그인
+  ## 로그인
+  
 
   ![login](./.docs/login.gif)
 
-  ### todos
+  ## todos
+  
 
   ![todolist](./.docs/todolist.gif)
