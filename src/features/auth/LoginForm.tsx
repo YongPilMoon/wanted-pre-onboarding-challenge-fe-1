@@ -33,8 +33,8 @@ export function LoginForm() {
   };
 
   return (
-    <div className="w-full">
-      <div className="grid gap-5 p-8 border">
+    <div className="w-full shadow-lg">
+      <div className="grid gap-5 p-8">
         <FormGroup onSubmit={handleSubmit(onSubmit)} title="로그인">
           <TextField
             label="이메일"

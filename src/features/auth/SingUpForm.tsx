@@ -47,8 +47,8 @@ export function SignUpForm() {
   const { email, password, passwordConfirm } = watch();
 
   return (
-    <div className="w-full">
-      <div className="grid gap-5 p-8 border">
+    <div className="w-full shadow-lg">
+      <div className="grid gap-5 p-8">
         <FormGroup onSubmit={handleSubmit(onSubmit)} title="회원가입">
           <TextField
             {...register("email")}

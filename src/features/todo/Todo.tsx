@@ -18,9 +18,9 @@ export function Todo() {
   return (
     <div className="flex flex-col gap-4">
       <TodoHeader />
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 gap-4">
         <TodoList />
-        <div className="px-6">
+        <div className="p-6 shadow-lg">
           {rightSection === rightSections.DETAIL ? (
             <TodoDetail todoId={todoIdParam} />
           ) : (

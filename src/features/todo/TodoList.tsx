@@ -7,7 +7,7 @@ export function TodoList() {
   const todos = useTodoList();
 
   return (
-    <div>
+    <div className="shadow-lg min-h-96 p-6">
       {todos ? (
         todos.length > 0 ? (
           todos?.map((todo) => <TodoListItem key={todo.id} {...todo} />)
