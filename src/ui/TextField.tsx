@@ -16,6 +16,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             ref={ref}
             {...otherProps}
             className="border border-slate-300 placeholder-slate-400 w-full p-1"
+            autoComplete="off"
           />
         </label>
         {errorMessage && (
