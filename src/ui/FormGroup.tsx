@@ -1,4 +1,4 @@
-import { FormEventHandler, PropsWithChildren } from "react";
+import type { FormEventHandler, PropsWithChildren } from "react";
 
 type FormGroupProps = {
   onSubmit: FormEventHandler<HTMLFormElement>;

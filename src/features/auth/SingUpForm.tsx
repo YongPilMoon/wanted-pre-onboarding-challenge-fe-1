@@ -1,9 +1,11 @@
-import { useForm } from "react-hook-form";
-import { TextField, Button, FormGroup } from "@/ui";
-import { object, string, ref } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { object, string, ref } from "yup";
+
 import { useSignUpMuation } from "./mutation/useSignUpMutation";
+
+import { TextField, Button, FormGroup } from "@/ui";
 
 type SignUpFormType = {
   email: string;

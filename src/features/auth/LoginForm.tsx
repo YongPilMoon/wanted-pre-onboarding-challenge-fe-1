@@ -1,9 +1,12 @@
-import { Button, TextField, FormGroup } from "@/ui";
-import { object, string } from "yup";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { AuthParams, useLoginMutation } from "./mutation";
+import { object, string } from "yup";
+
+import type { AuthParams } from "./mutation";
+import { useLoginMutation } from "./mutation";
+
+import { Button, TextField, FormGroup } from "@/ui";
 
 const loginFormschema = object().shape({
   email: string().email().required(),

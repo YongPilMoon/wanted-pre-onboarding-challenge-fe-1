@@ -1,11 +1,13 @@
+import { useLocation } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+
+import { rightSections } from "./constants";
 import { TodoDetail } from "./TodoDetail";
 import { TodoEditor } from "./TodoEditor";
 import { TodoHeader } from "./TodoHeader";
 import { TodoList } from "./TodoList";
-import { useRecoilValue } from "recoil";
+
 import { todoState } from "@/store/atoms";
-import { rightSections } from "./constants";
-import { useLocation } from "react-router-dom";
 
 export function Todo() {
   const { rightSection } = useRecoilValue(todoState);

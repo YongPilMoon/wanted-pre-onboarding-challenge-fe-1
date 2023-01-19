@@ -1,12 +1,5 @@
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
-import type { PropsWithChildren } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
+import type { PropsWithChildren, Dispatch, SetStateAction } from "react";
 
 type ModalType = "editor" | "confirm";
 

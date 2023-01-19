@@ -1,7 +1,7 @@
-import { isLogin } from "@/utils/token";
-import { PropsWithChildren } from "react";
-
+import type { PropsWithChildren } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+
+import { isLogin } from "@/utils/token";
 
 export function ProtectedRoute({ children }: PropsWithChildren) {
   const location = useLocation();

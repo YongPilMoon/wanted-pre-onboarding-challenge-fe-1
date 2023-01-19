@@ -1,7 +1,9 @@
-import { confirmState, ConfirmState } from "@/store/atoms";
-
 import { useSetRecoilState } from "recoil";
+
 import { useModal } from "../useModal";
+
+import type { ConfirmState } from "@/store/atoms";
+import { confirmState } from "@/store/atoms";
 
 export function useConfirm() {
   const { openModal } = useModal();

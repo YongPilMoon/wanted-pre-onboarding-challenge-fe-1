@@ -5,11 +5,11 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import { Layout } from "@/ui";
-import { ProtectedRoute, NoProtectedRoute } from "@/router";
-import { SignUp } from "@/pages/SignUp";
-import { Login } from "@/pages/Login";
 import { Home } from "@/pages/Home";
+import { Login } from "@/pages/Login";
+import { SignUp } from "@/pages/SignUp";
+import { ProtectedRoute, NoProtectedRoute } from "@/router";
+import { Layout } from "@/ui";
 
 export function Router() {
   const router = createBrowserRouter(

@@ -1,6 +1,8 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import { tokenRepository } from "../utils/token";
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
 import { toast } from "react-toastify";
+
+import { tokenRepository } from "../utils/token";
 type Error = {
   details: string;
 };

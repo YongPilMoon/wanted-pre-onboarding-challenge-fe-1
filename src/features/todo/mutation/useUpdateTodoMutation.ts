@@ -1,11 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
-import type { Todo } from "../queries/useTodoList";
-import { API } from "@/api/axiosInstance";
-import { todoKeys } from "../queries/queryKeys";
+import type { AxiosResponse } from "axios";
 import { useSetRecoilState } from "recoil";
-import { todoState } from "@/store/atoms";
+
+import { todoKeys } from "../queries/queryKeys";
+import type { Todo } from "../queries/useTodoList";
+
+import { API } from "@/api/axiosInstance";
 import { rightSections } from "@/features/todo/constants";
+import { todoState } from "@/store/atoms";
 
 export type UpdateTodoParams = Pick<Todo, "id" | "title" | "content">;
 

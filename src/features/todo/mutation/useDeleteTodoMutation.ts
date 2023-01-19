@@ -1,6 +1,8 @@
-import { API } from "@/api/axiosInstance";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import { todoKeys } from "../queries/queryKeys";
+
+import { API } from "@/api/axiosInstance";
 
 const deleteTodo = (id: string) => {
   return API.delete(`/todos/${id}`);

@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
-import type { Todo } from "../queries/useTodoList";
-import { API } from "@/api/axiosInstance";
+import type { AxiosResponse } from "axios";
+
 import { todoKeys } from "../queries/queryKeys";
+import type { Todo } from "../queries/useTodoList";
+
+import { API } from "@/api/axiosInstance";
 import { useModal } from "@/hooks/useModal";
 
 export type CreateTodoParams = Pick<Todo, "title" | "content">;

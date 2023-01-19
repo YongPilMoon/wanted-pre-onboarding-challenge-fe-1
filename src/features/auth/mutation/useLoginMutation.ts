@@ -1,8 +1,9 @@
+import { useMutation } from "@tanstack/react-query";
+import type { AxiosResponse } from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { API } from "@/api/axiosInstance";
 import { tokenRepository } from "@/utils/token";
-import { useMutation } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export type AuthParams = { email: string; password: string };
 

@@ -1,5 +1,5 @@
-import { ComponentProps, PropsWithChildren } from "react";
 import classNames from "classnames";
+import type { ComponentProps, PropsWithChildren } from "react";
 
 type Variant = "contained" | "text";
 type Color = "green" | "gray";

@@ -1,15 +1,17 @@
-import { Button } from "@/ui";
-import type { Todo } from "./queries/useTodoList";
-import { AiOutlineEdit, AiOutlineMinusCircle } from "react-icons/ai";
-import colors from "tailwindcss/colors";
 import classNames from "classnames";
-import { useSetRecoilState } from "recoil";
-import { todoState } from "@/store/atoms";
-import { rightSections } from "./constants";
-import { MouseEventHandler } from "react";
-import { useDeleteTodoMutation } from "./mutation/useDeleteTodoMutation";
-import { useConfirm } from "@/hooks/useConfirm/useConfirm";
+import type { MouseEventHandler } from "react";
+import { AiOutlineEdit, AiOutlineMinusCircle } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import colors from "tailwindcss/colors";
+
+import { rightSections } from "./constants";
+import { useDeleteTodoMutation } from "./mutation/useDeleteTodoMutation";
+import type { Todo } from "./queries/useTodoList";
+
+import { useConfirm } from "@/hooks/useConfirm/useConfirm";
+import { todoState } from "@/store/atoms";
+import { Button } from "@/ui";
 
 export function TodoListItem({ title, id }: Todo) {
   const { search } = useLocation();
