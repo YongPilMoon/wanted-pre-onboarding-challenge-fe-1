@@ -7,8 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { signUp } from "./api";
 import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
-import { authState } from "../../store/atoms";
-import { useSetRecoilState } from "recoil";
+import { tokenRepository } from "../../utils/token";
 
 type SignUpFormType = {
   email: string;
@@ -42,16 +41,11 @@ function SignUpForm() {
     mode: "onChange",
   });
   const navigate = useNavigate();
-  const setToken = useSetRecoilState(authState);
 
   const { mutateAsync } = useMutation({
     mutationFn: signUp,
     onSuccess: ({ data }) => {
-      localStorage.setItem("token", data.token);
-      setToken((prev) => ({
-        ...prev,
-        token: data.token,
-      }));
+      tokenRepository.value = data.token;
       navigate("/");
     },
   });

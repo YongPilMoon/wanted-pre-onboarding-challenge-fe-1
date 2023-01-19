@@ -1,13 +1,12 @@
+import { isLogin } from "@/utils/token";
 import { PropsWithChildren } from "react";
-import { useRecoilValue } from "recoil";
-import { authState } from "../../store/atoms";
+
 import { Navigate, useLocation } from "react-router-dom";
 
 function ProtectedRoute({ children }: PropsWithChildren) {
-  const { token } = useRecoilValue(authState);
   const location = useLocation();
 
-  if (!token) {
+  if (!isLogin()) {
     return <Navigate to="/auth/login" replace state={{ from: location }} />;
   }
 

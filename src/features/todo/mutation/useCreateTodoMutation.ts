@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import type { Todo } from "../queries/useTodoList";
-import API from "@/axiosInstance";
+import API from "@/api/axiosInstance";
 import { todoKeys } from "../queries/queryKeys";
 import useModal from "@/hooks/useModal";
 

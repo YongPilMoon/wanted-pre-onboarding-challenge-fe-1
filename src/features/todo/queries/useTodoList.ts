@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { todoKeys } from "./queryKeys";
-import API from "@/axiosInstance";
+import API from "@/api/axiosInstance";
 
 export type Todo = {
   title: string;

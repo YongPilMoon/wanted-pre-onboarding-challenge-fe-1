@@ -1,4 +1,4 @@
-import axios from "@/axiosInstance";
+import axios from "@/api/axiosInstance";
 import { AxiosResponse } from "axios";
 
 type AuthType = { email: string; password: string };

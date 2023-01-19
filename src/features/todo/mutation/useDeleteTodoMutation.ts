@@ -1,4 +1,4 @@
-import API from "@/axiosInstance";
+import API from "@/api/axiosInstance";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { todoKeys } from "../queries/queryKeys";
 

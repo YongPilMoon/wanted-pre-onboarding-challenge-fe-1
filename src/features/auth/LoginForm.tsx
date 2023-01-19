@@ -8,8 +8,7 @@ import FormGroup from "@/ui/FormGroup";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "./api";
-import { authState } from "@/store/atoms";
-import { useSetRecoilState } from "recoil";
+import { tokenRepository } from "../../utils/token";
 
 type LoginForm = {
   email: string;
@@ -24,15 +23,10 @@ const loginFormschema = object().shape({
 function LoginForm() {
   const location = useLocation();
   const navigate = useNavigate();
-  const setToken = useSetRecoilState(authState);
   const { mutateAsync } = useMutation({
     mutationFn: login,
     onSuccess: ({ data }) => {
-      localStorage.setItem("token", data.token);
-      setToken((prev) => ({
-        ...prev,
-        token: data.token,
-      }));
+      tokenRepository.value = data.token;
       const origin = location.state?.from?.pathname || "/";
       navigate(origin);
     },
