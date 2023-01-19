@@ -45,7 +45,6 @@ export function TodoListItem({ title, id }: Todo) {
           }
         )}
         onClick={handleTodoItem}
-        onKeyDown={handleTodoItem}
       >
         {title}
         <div className="grid gap-1 grid-flow-col">
