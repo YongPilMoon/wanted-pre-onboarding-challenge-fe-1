@@ -103,4 +103,52 @@ yarn dev  // 개발서버 실행
 `react-toastify`
 - 토스트 컴포넌트 라이브러리
 
+## 5. 폴더구조
+```
+src/
+├── api/
+│   │   # axios객체 생성 및 request, response 인터셉터 관련 코드 
+│   └── axiosInstance.ts  
+│       # feature별로 관련 파일들을 한 폴더에 위치시켜 특정 feature 수정 시 어느 파일을 수정해야 하는지 예측 가능하게 한다
+└── features/ 
+│   ├── auth/
+│   │   ├── mutation/
+│   │   │   ├── useLoginMutation.ts
+│   │   │   └── useSignUpMutation.ts
+│   │   ├── LoginForm.tsx
+│   │   └── ...
+│   ├── todo/
+│   │   │   # mutation과 query코드를 별도 폴더로 관리
+│   │   ├── mutation/
+│   │   ├── queries/
+│   │   │   ├── queryKeys.ts
+│   │   │   └── useTodoList.ts
+│   │   ├── constants.ts
+│   │   ├── Todo.tsx
+│   │   │   # 자식 컴포넌트를 부모 컴포넌트와 같은 폴더에 위치 시킴
+│   │   └── TodoList
+│   │       ├── TodoList.tsx
+│   │       └── TodoListItem.tsx
+│   │   # 여러 feature에서 사용될 수 있는 hooks
+│   ├── hooks/
+│   │   ├── useConfirm.ts
+│   │   └── useModal.tsx
+│   │   # 일반적인 UI 컴포넌트
+│   └── ui/
+│       ├──  Button.tsx
+│       └── ...
+│   # entry point를 한 폴더에서 관리 
+├── pages/
+│   ├── Home.tsx
+│   └── ...
+├── router/
+│   ├── Router.tsx
+│   └── ...
+├── store/
+│   └── atoms.ts
+└── utils/
+    ├── localStorageValue.ts
+    └── ...
+```
+
   
