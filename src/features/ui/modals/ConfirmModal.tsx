@@ -2,7 +2,7 @@ import { useRecoilValue } from "recoil";
 
 import { Button } from "../Button";
 
-import { useModal } from "@/features/ui/Modal/useModal";
+import { useModal } from "@/features/hooks/useModal";
 import { confirmState } from "@/store/atoms";
 
 export function ConfirmModal() {

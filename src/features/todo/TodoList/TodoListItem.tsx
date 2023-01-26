@@ -9,8 +9,8 @@ import { rightSections } from "../constants";
 import { useDeleteTodoMutation } from "../mutation/useDeleteTodoMutation";
 import type { Todo } from "../queries/useTodoList";
 
+import { useConfirm } from "@/features/hooks/useConfirm";
 import { Button } from "@/features/ui";
-import { useConfirm } from "@/features/ui/ConfirmModal/useConfirm";
 import { todoState } from "@/store/atoms";
 
 export function TodoListItem({ title, id }: Todo) {

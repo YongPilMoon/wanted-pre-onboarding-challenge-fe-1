@@ -1,5 +1,5 @@
+import { useModal } from "@/features/hooks/useModal";
 import { Button } from "@/features/ui";
-import { useModal } from "@/features/ui/Modal/useModal";
 
 export function TodoHeader() {
   const { openModal } = useModal();

@@ -1,9 +1,9 @@
 import { memo, useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
 
-import { ConfirmModal } from "../ConfirmModal/ConfirmModal";
+import { useModal, ModalStateContext } from "../../hooks/useModal";
 
-import { useModal, ModalStateContext } from "./useModal";
+import { ConfirmModal } from "./ConfirmModal";
 
 import { TodoEditorModalContent } from "@/features/todo/TodoEditor";
 

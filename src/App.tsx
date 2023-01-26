@@ -3,7 +3,9 @@ import { ToastContainer } from "react-toastify";
 import { RecoilRoot } from "recoil";
 
 import "react-toastify/dist/ReactToastify.css";
-import { Modal, ModalProvider } from "./features/ui/Modal";
+
+import { ModalProvider } from "./features/hooks/useModal";
+import { Modal } from "./features/ui";
 import { Router } from "./router";
 
 const queryClient = new QueryClient({
