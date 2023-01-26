@@ -1,10 +1,11 @@
 import { memo, useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
 
-import { ConfirmModal } from "../hooks/useConfirm/ConfirmModal";
-import { useModal, ModalStateContext } from "../hooks/useModal";
+import { ConfirmModal } from "../ConfirmModal/ConfirmModal";
 
-import { TodoEditorModalContent } from "@/features/todo/TodoEditorModalContent";
+import { useModal, ModalStateContext } from "./useModal";
+
+import { TodoEditorModalContent } from "@/features/todo/TodoEditor";
 
 const ModalContentMap = {
   editor: TodoEditorModalContent,

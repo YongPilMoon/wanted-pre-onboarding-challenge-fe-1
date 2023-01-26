@@ -5,7 +5,7 @@ import { rightSections } from "./constants";
 import { TodoDetail } from "./TodoDetail";
 import { TodoEditor } from "./TodoEditor";
 import { TodoHeader } from "./TodoHeader";
-import { TodoList } from "./TodoList";
+import { TodoList } from "./TodoList/TodoList";
 
 import { todoState } from "@/store/atoms";
 

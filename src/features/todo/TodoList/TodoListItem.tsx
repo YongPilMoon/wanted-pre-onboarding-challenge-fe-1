@@ -5,13 +5,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import colors from "tailwindcss/colors";
 
-import { rightSections } from "./constants";
-import { useDeleteTodoMutation } from "./mutation/useDeleteTodoMutation";
-import type { Todo } from "./queries/useTodoList";
+import { rightSections } from "../constants";
+import { useDeleteTodoMutation } from "../mutation/useDeleteTodoMutation";
+import type { Todo } from "../queries/useTodoList";
 
-import { useConfirm } from "@/hooks/useConfirm/useConfirm";
 import { todoState } from "@/store/atoms";
 import { Button } from "@/ui";
+import { useConfirm } from "@/ui/ConfirmModal/useConfirm";
 
 export function TodoListItem({ title, id }: Todo) {
   const { search } = useLocation();

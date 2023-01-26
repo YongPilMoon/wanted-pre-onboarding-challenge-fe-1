@@ -5,7 +5,7 @@ import { todoKeys } from "../queries/queryKeys";
 import type { Todo } from "../queries/useTodoList";
 
 import { API } from "@/api/axiosInstance";
-import { useModal } from "@/hooks/useModal";
+import { useModal } from "@/ui/Modal/useModal";
 
 export type CreateTodoParams = Pick<Todo, "title" | "content">;
 

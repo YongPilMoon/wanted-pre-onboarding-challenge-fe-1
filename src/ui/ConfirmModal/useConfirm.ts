@@ -1,6 +1,6 @@
 import { useSetRecoilState } from "recoil";
 
-import { useModal } from "../useModal";
+import { useModal } from "../Modal/useModal";
 
 import type { ConfirmState } from "@/store/atoms";
 import { confirmState } from "@/store/atoms";

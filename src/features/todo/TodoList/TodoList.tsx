@@ -1,4 +1,5 @@
-import { useTodoList } from "./queries/useTodoList";
+import { useTodoList } from "../queries/useTodoList";
+
 import { TodoListItem } from "./TodoListItem";
 
 import { Spinner } from "@/ui";
