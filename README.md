@@ -34,17 +34,16 @@
 
   # 실행화면
 
-  ## 회원가입
+  ### 회원가입
   
+  https://user-images.githubusercontent.com/22088158/214752390-3221a7a6-22ed-4c7d-ac8d-fefbc16df3ab.mov
 
-  ![signup](./.docs/signup.gif)
-
-  ## 로그인
+  ### 로그인
   
+  https://user-images.githubusercontent.com/22088158/214752238-b38d62b9-4482-44c1-b4d9-2f3acb0e5b4b.mov
 
-  ![login](./.docs/login.gif)
+  ### todolist
+ 
+  https://user-images.githubusercontent.com/22088158/214752399-a130dfd9-cf2c-4ce7-ba91-7dd293e1c295.mov
 
-  ## todos
-  
 
-  ![todolist](./.docs/todolist.gif)
