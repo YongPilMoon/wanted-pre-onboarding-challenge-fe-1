@@ -5,7 +5,7 @@ import { object, string, ref } from "yup";
 
 import { useSignUpMuation } from "./mutation/useSignUpMutation";
 
-import { TextField, Button, FormGroup } from "@/ui";
+import { TextField, Button, FormGroup } from "@/features/ui";
 
 type SignUpFormType = {
   email: string;

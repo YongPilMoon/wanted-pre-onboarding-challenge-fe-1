@@ -2,10 +2,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import { RecoilRoot } from "recoil";
 
-import { Router } from "@/router/Router";
-import { Modal } from "@/ui";
-import { ModalProvider } from "@/ui/Modal/useModal";
 import "react-toastify/dist/ReactToastify.css";
+import { Modal, ModalProvider } from "./features/ui/Modal";
+import { Router } from "./router";
 
 const queryClient = new QueryClient({
   defaultOptions: {

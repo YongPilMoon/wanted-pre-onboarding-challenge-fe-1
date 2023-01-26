@@ -2,8 +2,8 @@ import { useRecoilValue } from "recoil";
 
 import { Button } from "../Button";
 
+import { useModal } from "@/features/ui/Modal/useModal";
 import { confirmState } from "@/store/atoms";
-import { useModal } from "@/ui/Modal/useModal";
 
 export function ConfirmModal() {
   const { message, onConfirm, onCancle } = useRecoilValue(confirmState);

@@ -6,7 +6,7 @@ import { object, string } from "yup";
 import type { AuthParams } from "./mutation";
 import { useLoginMutation } from "./mutation";
 
-import { Button, TextField, FormGroup } from "@/ui";
+import { Button, TextField, FormGroup } from "@/features/ui";
 
 const loginFormschema = object().shape({
   email: string().email().required(),

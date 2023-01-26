@@ -2,7 +2,7 @@ import { useTodoList } from "../queries/useTodoList";
 
 import { TodoListItem } from "./TodoListItem";
 
-import { Spinner } from "@/ui";
+import { Spinner } from "@/features/ui";
 
 export function TodoList() {
   const todos = useTodoList();
