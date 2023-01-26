@@ -109,7 +109,7 @@ src/
 ├── api/
 │   │   # axios객체 생성 및 request, response 인터셉터 관련 코드 
 │   └── axiosInstance.ts  
-│       # feature별로 관련 파일들을 한 폴더에 위치시켜 특정 feature 수정 시 어느 파일을 수정해야 하는지 예측 가능하게 한다
+│   # feature별로 관련 파일들을 한 폴더에 위치시켜 특정 feature 수정 시 어느 파일을 수정해야 하는지 예측 가능하게 한다
 └── features/ 
 │   ├── auth/
 │   │   ├── mutation/
