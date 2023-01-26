@@ -2,7 +2,33 @@
 
 [원티드 프리온보딩 프론트엔드 챌린지](https://www.wanted.co.kr/events/pre_challenge_fe_5) 강의 과정에서 작성한 코드입니다.
 
-# 요구사항
+## 1.실행화면
+
+### 회원가입
+
+https://user-images.githubusercontent.com/22088158/214752390-3221a7a6-22ed-4c7d-ac8d-fefbc16df3ab.mov
+
+### 로그인
+
+https://user-images.githubusercontent.com/22088158/214752238-b38d62b9-4482-44c1-b4d9-2f3acb0e5b4b.mov
+
+### todolist
+
+https://user-images.githubusercontent.com/22088158/214752399-a130dfd9-cf2c-4ce7-ba91-7dd293e1c295.mov
+
+## 2.실행방법
+
+### API 서버 
+[레파지토리](https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api)
+
+### 웹
+
+```
+yarn install  // 패키지 설치
+yarn dev  // 개발서버 실행
+```
+
+## 3.요구사항
 
 ### Assignment 1 - Login / SignUp
 
@@ -32,18 +58,49 @@
 
   - [x] 수정되는 Todo의 내용이 목록에서도 실시간으로 반영되어야 합니다
 
-  # 실행화면
 
-  ### 회원가입
+
+## 4. 기술 스택
+
+### 4.1 번들러
+`vite`
+- 빠른 개발환경 구축을 위해 사용
+- esbuild로 dependency 라이브러리들을 미리 번들링하여 개발 서버를 빠르게 실행
+- 모든 파일을 하나로 번들링하는 방식이 아닌 Native ESM으로 필요한 소스코드만 가져와 실행
+
+
+### 4.2 form
+`react-hook-form`
+- 적은 양의 코드로 form validation 및 성능이 뛰어난 form을 구현하기 위해 사용
+
+`yup`
+- validation코드를 선언형으로 작성하기 위해 사용
+
+
+### 4.3 서버 데이터
+`axios`
+- HTTP 통신에 필요한 baseURL, header등을 간편하게 설정하기 위해 사용
+- request, reponse를 인터셉트하여 적절한 토스트 메시지를 뛰움
+
+`react-query`
+- SWR(Stale-While-Revalidate)전략으로 서버데이터를 캐싱하여 응답속도 최적화함
+- 서버 상태와 클라이언트 상태를 명확하게 분리
+- isLaoding, isError등 HTTP요청 상태를 간편하게 관리
+- TodoList 데이터는 사용자에 의해서만 변경됨으로 `staleTime`을 `Infinite`로 설정하여 불필요한 요청을 줄임
+
+
+### 4.5 상태관리
+`recoil`
+- props drilling을 피하고 여러 컴포넌트에서 사용이 필요한 데이터를 관리하기 위해 사용
+- 모달상태 및 Todo Detail 읽기, 편집 모드를 관리할 때 사용 
+
+
+### 4.5 스타일링
+`tailwindcss`
+- 스타일링 코드를 빠르게 작성하고 일관된 스타일을 적용하기 위해 사용
+
+### 4.6 UI
+`react-toastify`
+- 토스트 컴포넌트 라이브러리
+
   
-  https://user-images.githubusercontent.com/22088158/214752390-3221a7a6-22ed-4c7d-ac8d-fefbc16df3ab.mov
-
-  ### 로그인
-  
-  https://user-images.githubusercontent.com/22088158/214752238-b38d62b9-4482-44c1-b4d9-2f3acb0e5b4b.mov
-
-  ### todolist
- 
-  https://user-images.githubusercontent.com/22088158/214752399-a130dfd9-cf2c-4ce7-ba91-7dd293e1c295.mov
-
-
